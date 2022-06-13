@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import co.spoon.abtester.ABTester
 import co.spoon.abtester.constants.ABTestVariant
-import co.spoon.abtester.provider.ABTestConfig
 import co.spoon.abtester.provider.ApptimizeConfig
 import co.spoon.abtesterdemo.databinding.ActivityMainBinding
 
