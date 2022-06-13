@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven { url 'https://maven.apptimize.com/artifactory/repo' }
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +11,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://maven.apptimize.com/artifactory/repo' }
     }
 }
 rootProject.name = "abtester"
 include ':app'
+include ':abtester'
