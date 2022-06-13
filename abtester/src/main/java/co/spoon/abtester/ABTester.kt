@@ -5,8 +5,6 @@ import co.spoon.abtester.provider.ABTestConfig
 import co.spoon.abtester.provider.ABTestProvider
 import co.spoon.abtester.provider.ApptimizeConfig
 import co.spoon.abtester.provider.impl.ApptimizeProvider
-import javax.inject.Inject
-import javax.inject.Singleton
 
 class ABTester private constructor(
     private val provider: ABTestProvider,
