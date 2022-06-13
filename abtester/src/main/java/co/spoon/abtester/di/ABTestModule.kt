@@ -3,7 +3,6 @@ package co.spoon.abtester.di
 import co.spoon.abtester.provider.ABTestProvider
 import co.spoon.abtester.provider.impl.ApptimizeProvider
 import co.spoon.abtester.ABTester
-import co.spoon.abtester.impl.ABTesterImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,7 +14,7 @@ import javax.inject.Singleton
 abstract class ABTestModule {
     @Singleton
     @Binds
-    internal abstract fun bindABTester(manager: ABTesterImpl): ABTester
+    internal abstract fun bindABTester(manager: ABTester): ABTester
 
     @Singleton
     @Binds

@@ -1,31 +1,29 @@
 package co.spoon.abtester.provider.impl
 
-import android.content.Context
 import android.util.Log
-import co.spoon.abtester.provider.ABTestProvider
 import co.spoon.abtester.constants.ABTestVariant
+import co.spoon.abtester.provider.ABTestConfig
+import co.spoon.abtester.provider.ABTestProvider
+import co.spoon.abtester.provider.ApptimizeConfig
 import com.apptimize.Apptimize
 import com.apptimize.ApptimizeOptions
 import com.apptimize.ApptimizeTest
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-internal class ApptimizeProvider @Inject constructor(
-    @ApplicationContext
-    private val appCtx: Context
+internal class ApptimizeProvider constructor(
+    config: ABTestConfig,
 ): ABTestProvider {
 
-    private val abTestMap: MutableMap<String, String> by lazy { mutableMapOf() }
-
     init {
-        val apptimizeOptions = ApptimizeOptions().apply {
-            isThirdPartyEventExportingEnabled = true
-            isThirdPartyEventImportingEnabled = true
+        (config as? ApptimizeConfig)?.let { conf ->
+            val apptimizeOptions = ApptimizeOptions().apply {
+                isThirdPartyEventExportingEnabled = true
+                isThirdPartyEventImportingEnabled = true
+            }
+            Apptimize.setup(conf.appCtx, conf.apptimizeKey, apptimizeOptions)
         }
-        Apptimize.setup(appCtx, "BuildConfig.APPTIMIZE_KEY", apptimizeOptions)
     }
+
+    private val abTestMap: MutableMap<String, String> by lazy { mutableMapOf() }
 
     override fun setupABTests(abTestNames: List<String>) {
         abTestNames.forEach { abTestName ->
