@@ -15,7 +15,7 @@ allprojects {
 ### Step 2. Add the dependency
 ```
 dependencies {
-  implementation 'com.github.spooncast:abtester-android:release-0.0.1'
+  implementation 'com.github.spooncast:abtester-android:release-{LATEST_VERSION}'
 }
 ```
 
